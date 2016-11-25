@@ -42,6 +42,9 @@ public class Main
 	{
 		//TODO: Chequear si algun individuo supera el fitness esperado
 		if(population.size()==1){
+			System.out.println("###########Mejor Camino###################");
+			System.out.println(population);
+			System.out.println("##########################################");
 			return true;		
 		}else{
 			return false;			
