@@ -7,15 +7,14 @@ public class Main
 {
 	//population
 	public static ArrayList<ArrayList<Integer>> population;
-	public static int populationLength = 10;
+	public static int populationLength = 20;
 
 	public static void main(String[] args) 
 	{
 		//1. Generar la primera poblacion
 		population = new ArrayList<ArrayList<Integer>>();
 		Random rnd = new Random();
-		System.out.println("Hola mundo");
-		/*for (int i = 0; i < populationLength; i++)
+		for (int i = 0; i < populationLength; i++)
 		{
 			//1.a - Generamos cada cromosoma
 			ArrayList<Integer> chromosome = new ArrayList<Integer>(); 
@@ -36,7 +35,7 @@ public class Main
 			crossover();
 			mutation();
 			updatePopulation();
-		}*/
+		}
 	}
 	
 	public static boolean solutionFound()
@@ -56,7 +55,10 @@ public class Main
 			selectedParents.clear();
 		
 		//1. Ordenar y seleccionar los individuos de population para reproducir
+		Util.orderPopulation(population);
 		//2. agregar estos individuos a "selectedParents".
+		selectedParents.addAll(population);
+		
 	}
 	
 	public static ArrayList<ArrayList<Integer>> childrens;
@@ -70,7 +72,15 @@ public class Main
 			childrens.clear();
 		
 		//1. Recorremos los padres y los reproducimos.
-		//2. Los hijos resultado de la cruza van a "children".
+		while(selectedParents.size()>=2){
+			ArrayList<Integer> father = Util.getParent(selectedParents);
+			ArrayList<Integer> mother = Util.getParent(selectedParents);	
+			
+			//2. Los hijos resultado de la cruza van a "children".
+			ArrayList<Integer> childrenSeleccionado = Util.combine(father, mother);
+			childrens.add(childrenSeleccionado);
+		}
+
 	}
 	
 	public static void mutation()
@@ -83,9 +93,7 @@ public class Main
 	public static void updatePopulation()
 	{
 		//TODO: Descartar individuos de la poblacion y reemplazarlos con los hijos que creamos en crossover()
-		//1. Seleccionar los individuos a eliminar
-		//2. removemos estos individuos de "population"
-		//3. Agregamos a population los elementos de children
+		population = childrens;
 	}
 	
 	
