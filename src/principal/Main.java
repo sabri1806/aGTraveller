@@ -41,7 +41,12 @@ public class Main
 	public static boolean solutionFound()
 	{
 		//TODO: Chequear si algun individuo supera el fitness esperado
-		return false;
+		if(population.size()==1){
+			return true;		
+		}else{
+			return false;			
+		}
+
 	}
 	
 	public static ArrayList<ArrayList<Integer>> selectedParents;
@@ -86,8 +91,11 @@ public class Main
 	public static void mutation()
 	{
 		//TODO: Modificamos los genes de los individuos hijos con un rate muy bajo
-		//1. recorrer con un for todos "children"
-		//2. Tiramos un random con un valor MUY chico, y en caso de caso de salir favorecido lo mutamos.
+		for(ArrayList<Integer> child: childrens){
+			Integer temp = child.get(3);
+			child.set(3, child.get(7));
+			child.set(7, temp);
+		}
 	}
 	
 	public static void updatePopulation()
