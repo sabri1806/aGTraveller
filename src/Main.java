@@ -6,12 +6,14 @@ public class Main
 	//population
 	public static ArrayList<ArrayList<Integer>> population;
 	public static int populationLength = 10;
+
 	public static void main(String[] args) 
 	{
 		//1. Generar la primera poblacion
 		population = new ArrayList<ArrayList<Integer>>();
 		Random rnd = new Random();
-		for (int i = 0; i < populationLength; i++) 
+		System.out.println("Hola mundo");
+		/*for (int i = 0; i < populationLength; i++)
 		{
 			//1.a - Generamos cada cromosoma
 			ArrayList<Integer> chromosome = new ArrayList<Integer>(); 
@@ -32,7 +34,7 @@ public class Main
 			crossover();
 			mutation();
 			updatePopulation();
-		}
+		}*/
 	}
 	
 	public static boolean solutionFound()
