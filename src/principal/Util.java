@@ -36,6 +36,7 @@ public class Util {
 				}
 			}
 
+			//calcula el fitness por la diferencia matematica entre los indices y compara
 			private float getFitness(ArrayList<Integer> current) {
 				
 				float fitness = 0;
@@ -71,7 +72,7 @@ public class Util {
 	}
 	
 	public static ArrayList<Integer> combine(ArrayList<Integer> f, ArrayList<Integer> m){
-		//System.out.println("############################################3");
+		//System.out.println("############################################");
 		//System.out.println(f);
 		//System.out.println(m);
 		ArrayList<Integer> hijo1 = new ArrayList<Integer>();
