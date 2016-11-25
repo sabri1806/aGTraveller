@@ -71,22 +71,41 @@ public class Util {
 	}
 	
 	public static ArrayList<Integer> combine(ArrayList<Integer> f, ArrayList<Integer> m){
+		System.out.println("############################################3");
+		System.out.println(f);
+		System.out.println(m);
+		ArrayList<Integer> hijo1 = new ArrayList<Integer>();
+		ArrayList<Integer> hijo2 = new ArrayList<Integer>();
 		
-		ArrayList<Integer> chil1FirstHalf = ((ArrayList<Integer>)f.subList(0, 4));
+		for(int i=0; i<4; i++){
+			hijo1.add(f.get(i));
+			hijo2.add(m.get(i));
+		}
+		
+		for(int i=4; i<10; i++){
+			hijo1.add(m.get(i));
+			hijo2.add(f.get(i));
+		}		
+		System.out.println("-----------------------------------------");
+		System.out.println(hijo1);
+		System.out.println(hijo2);
+		
+		
+		/*ArrayList<Integer> chil1FirstHalf = ((ArrayList<Integer>)f.subList(0, 4));
 		ArrayList<Integer> chil1SecondHalf =((ArrayList<Integer>)m.subList(5, 9));
 		
 		ArrayList<Integer> chil2FirstHalf = ((ArrayList<Integer>)m.subList(0, 4));
-		ArrayList<Integer> chil2SecondHalf =((ArrayList<Integer>)f.subList(5, 9));
+		ArrayList<Integer> chil2SecondHalf =((ArrayList<Integer>)f.subList(5, 9));*/
 
-		 Random random = new Random();
-		int selectedChild = random.nextInt(1);
+		Random random = new Random();
+		int selectedChild = random.nextInt(2);
+		
+		System.out.println(selectedChild);
 		
 		if(selectedChild==0){
-			chil1FirstHalf.addAll(chil1SecondHalf);
-			return chil1FirstHalf;
+			return hijo1;
 		}else{
-			chil2FirstHalf.addAll(chil2SecondHalf);
-			return chil2FirstHalf;
+			return hijo2;
 			
 		}		
 	}
